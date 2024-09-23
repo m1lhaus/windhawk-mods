@@ -1,3 +1,7 @@
+## 1.4 ([Sep 23, 2024](https://github.com/ramensoftware/windhawk-mods/blob/34f8b099349b2c0ba38fffc176f1d8ff60f977dd/mods/taskbar-empty-space-clicks.wh.cpp))
+
+removed outdated comment
+
 ## 1.4 ([Sep 23, 2024](https://github.com/ramensoftware/windhawk-mods/blob/4318c7d13c902cddfe6fad34fbb5139cf69c7886/mods/taskbar-empty-space-clicks.wh.cpp))
 
 use proper WINVER to avoid compiler macro redefinition errors
