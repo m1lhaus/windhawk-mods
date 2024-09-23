@@ -1,3 +1,7 @@
+## 1.4 ([Sep 23, 2024](https://github.com/ramensoftware/windhawk-mods/blob/4240b03f685d8824b74f625a24f254f52b348a16/mods/taskbar-empty-space-clicks.wh.cpp))
+
+reverted back UIAutomation declarations to keep compatibility with older Windhawk version
+
 ## 1.4 ([Sep 23, 2024](https://github.com/ramensoftware/windhawk-mods/blob/118a963995dabbb6649b3d5e03779943d5a1f223/mods/taskbar-empty-space-clicks.wh.cpp))
 
 Fixed build errors introduced with latest version of Windhawk 1.5x

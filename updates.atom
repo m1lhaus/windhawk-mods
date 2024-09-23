@@ -2,12 +2,23 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://windhawk.net/</id>
     <title>Windhawk Mod Updates</title>
-    <updated>2024-09-23T14:31:26.000Z</updated>
+    <updated>2024-09-23T15:29:16.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://windhawk.net/"/>
     <subtitle>Updates in the official collection of Windhawk mods</subtitle>
     <icon>https://windhawk.net/favicon.ico</icon>
     <rights>Ramen Software</rights>
+    <entry>
+        <title type="html"><![CDATA[Click on empty taskbar space 1.4]]></title>
+        <id>https://windhawk.net/mods/taskbar-empty-space-clicks#4240b03f685d8824b74f625a24f254f52b348a16</id>
+        <link href="https://windhawk.net/mods/taskbar-empty-space-clicks"/>
+        <updated>2024-09-23T15:29:16.000Z</updated>
+        <content type="html"><![CDATA[<p>reverted back UIAutomation declarations to keep compatibility with older Windhawk version</p>]]></content>
+        <author>
+            <name>m1lhaus</name>
+            <uri>https://github.com/m1lhaus</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Click on empty taskbar space 1.4]]></title>
         <id>https://windhawk.net/mods/taskbar-empty-space-clicks#118a963995dabbb6649b3d5e03779943d5a1f223</id>
@@ -289,20 +300,6 @@ button do that.</p>]]></content>
         <author>
             <name>aubymori</name>
             <uri>https://github.com/aubymori</uri>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Windows 11 Notification Center Styler 1.1.2]]></title>
-        <id>https://windhawk.net/mods/windows-11-notification-center-styler#bf5b0746e2cb9d22e109b664ca3a63c430199f18</id>
-        <link href="https://windhawk.net/mods/windows-11-notification-center-styler"/>
-        <updated>2024-09-07T11:41:08.000Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Added a new theme: Unified.</li>
-<li>Added a workaround for hanging the notification center process on Windows 10. Although the available themes and example styles are designed for Windows 11, it should now be possible to use the mod on Windows 10 too.</li>
-</ul>]]></content>
-        <author>
-            <name>m417z</name>
-            <uri>https://github.com/m417z</uri>
         </author>
     </entry>
 </feed>
