@@ -32,6 +32,17 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Click on empty taskbar space 1.4]]></title>
+        <id>https://windhawk.net/mods/taskbar-empty-space-clicks#ce7d0a3438f45cc7b2283400f363eda8df6a59cd</id>
+        <link href="https://windhawk.net/mods/taskbar-empty-space-clicks"/>
+        <updated>2024-09-23T15:14:02.000Z</updated>
+        <content type="html"><![CDATA[<p>Use CoInitializeEx with COINIT_APARTMENTTHREADED (fixes #12)</p>]]></content>
+        <author>
+            <name>m1lhaus</name>
+            <uri>https://github.com/m1lhaus</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Click on empty taskbar space 1.4]]></title>
         <id>https://windhawk.net/mods/taskbar-empty-space-clicks#118a963995dabbb6649b3d5e03779943d5a1f223</id>
         <link href="https://windhawk.net/mods/taskbar-empty-space-clicks"/>
         <updated>2024-09-23T14:31:26.000Z</updated>
@@ -283,20 +294,6 @@ or a similar tool), enable the relevant option in the mod's settings.</p>
         <author>
             <name>Toru the Red Fox</name>
             <uri>https://github.com/TorutheRedFox</uri>
-        </author>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Customize Windows notifications placement 1.0.1]]></title>
-        <id>https://windhawk.net/mods/notifications-placement#2914b84cba2528701e51fcb904fe379e9bfd982d</id>
-        <link href="https://windhawk.net/mods/notifications-placement"/>
-        <updated>2024-09-08T07:08:16.000Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>The mod was tested on Windows 10 and was found to be working correctly. The mod name and description were updated accordingly.</li>
-<li>Made the mod work on non-English Windows versions.</li>
-</ul>]]></content>
-        <author>
-            <name>m417z</name>
-            <uri>https://github.com/m417z</uri>
         </author>
     </entry>
 </feed>
