@@ -1,32 +1,8 @@
-## 1.4 ([Sep 23, 2024](https://github.com/ramensoftware/windhawk-mods/blob/34f8b099349b2c0ba38fffc176f1d8ff60f977dd/mods/taskbar-empty-space-clicks.wh.cpp))
+## 1.4 ([Sep 23, 2024](https://github.com/ramensoftware/windhawk-mods/blob/24a59b390771c24436afc2ef3b64c145f8547082/mods/taskbar-empty-space-clicks.wh.cpp))
 
-removed outdated comment
+* Fixed build errors introduced with latest version of Windhawk 1.5x
 
-## 1.4 ([Sep 23, 2024](https://github.com/ramensoftware/windhawk-mods/blob/4318c7d13c902cddfe6fad34fbb5139cf69c7886/mods/taskbar-empty-space-clicks.wh.cpp))
-
-use proper WINVER to avoid compiler macro redefinition errors
-
-## 1.4 ([Sep 23, 2024](https://github.com/ramensoftware/windhawk-mods/blob/e9224d482daded39354c194c62511f50401204bc/mods/taskbar-empty-space-clicks.wh.cpp))
-
-Merge pull request #14 from m417z/fix-co-initialize
-
-Use CoInitializeEx with COINIT_APARTMENTTHREADED (fixes #12)
-
-## 1.4 ([Sep 23, 2024](https://github.com/ramensoftware/windhawk-mods/blob/550795655e2bda5a5fdf4504372d4e850b0c772e/mods/taskbar-empty-space-clicks.wh.cpp))
-
-added missing defines due to incorrect WINVER value in older Windhawk versions
-
-## 1.4 ([Sep 23, 2024](https://github.com/ramensoftware/windhawk-mods/blob/4240b03f685d8824b74f625a24f254f52b348a16/mods/taskbar-empty-space-clicks.wh.cpp))
-
-reverted back UIAutomation declarations to keep compatibility with older Windhawk version
-
-## 1.4 ([Sep 23, 2024](https://github.com/ramensoftware/windhawk-mods/blob/ce7d0a3438f45cc7b2283400f363eda8df6a59cd/mods/taskbar-empty-space-clicks.wh.cpp))
-
-Use CoInitializeEx with COINIT_APARTMENTTHREADED (fixes #12)
-
-## 1.4 ([Sep 23, 2024](https://github.com/ramensoftware/windhawk-mods/blob/118a963995dabbb6649b3d5e03779943d5a1f223/mods/taskbar-empty-space-clicks.wh.cpp))
-
-Fixed build errors introduced with latest version of Windhawk 1.5x
+* Use CoInitializeEx with COINIT_APARTMENTTHREADED (fixes issue #12: Can't Restart Explorer While this Mod is Enabled)
 
 ## 1.3 ([Feb 7, 2024](https://github.com/ramensoftware/windhawk-mods/blob/7cf96eb29f7166f2587624eac5241b4eeb4a0016/mods/taskbar-empty-space-clicks.wh.cpp))
 
