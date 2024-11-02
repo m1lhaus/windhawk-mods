@@ -9,7 +9,7 @@
                 "published": 1721392103000,
                 "rating": 10,
                 "ratingUsers": 4,
-                "updated": 1729083066000,
+                "updated": 1729667984000,
                 "users": 190
             },
             "metadata": {
@@ -25,7 +25,7 @@
                     "explorer.exe"
                 ],
                 "name": "Accent Color Sync",
-                "version": "1.52"
+                "version": "1.53"
             }
         },
         "acrylic-effect-radius-changer": {
@@ -119,6 +119,30 @@
                 ],
                 "name": "Aero Tray",
                 "version": "1.0.2"
+            }
+        },
+        "alt-tab-per-monitor": {
+            "details": {
+                "defaultSorting": 290,
+                "published": 1730148779000,
+                "rating": 10,
+                "ratingUsers": 2,
+                "updated": 1730148779000,
+                "users": 29
+            },
+            "metadata": {
+                "architecture": [
+                    "x86-64"
+                ],
+                "author": "L3r0y",
+                "compilerOptions": "-lole32 -loleaut32",
+                "description": "Pressing Alt+Tab shows all open windows on the primary display. This mod shows only the windows on the monitor where the cursor is.",
+                "github": "https://github.com/L3r0yThingz",
+                "include": [
+                    "explorer.exe"
+                ],
+                "name": "Alt+Tab per monitor",
+                "version": "1.0.0"
             }
         },
         "basic-themer": {
@@ -760,6 +784,32 @@
                 "version": "1.0.0"
             }
         },
+        "desktop-icons-view": {
+            "details": {
+                "defaultSorting": 240,
+                "published": 1729369429000,
+                "rating": 10,
+                "ratingUsers": 1,
+                "updated": 1730069661000,
+                "users": 24
+            },
+            "metadata": {
+                "architecture": [
+                    "x86-64"
+                ],
+                "author": "m417z",
+                "compilerOptions": "-lcomdlg32",
+                "description": "Change desktop icons view to list, details, small icons, or tiles",
+                "github": "https://github.com/m417z",
+                "homepage": "https://m417z.com/",
+                "include": [
+                    "explorer.exe"
+                ],
+                "name": "Desktop icons view",
+                "twitter": "https://twitter.com/m417z",
+                "version": "1.0.2"
+            }
+        },
         "desktop-watermark-tweaks": {
             "details": {
                 "defaultSorting": 1620,
@@ -1032,7 +1082,7 @@
                 "published": 1728722786000,
                 "rating": 10,
                 "ratingUsers": 11,
-                "updated": 1728722786000,
+                "updated": 1729252335000,
                 "users": 457
             },
             "metadata": {
@@ -1040,7 +1090,6 @@
                     "x86-64"
                 ],
                 "author": "m417z",
-                "compilerOptions": "-lshlwapi",
                 "description": "Always show the classic context menu without having to select \"Show More Options\" or hold Shift",
                 "github": "https://github.com/m417z",
                 "homepage": "https://m417z.com/",
@@ -1049,7 +1098,30 @@
                 ],
                 "name": "Classic context menu on Windows 11",
                 "twitter": "https://twitter.com/m417z",
-                "version": "1.0"
+                "version": "1.0.1"
+            }
+        },
+        "explorer-details-better-file-sizes": {
+            "details": {
+                "defaultSorting": 3730,
+                "published": 1730231151000,
+                "rating": 10,
+                "ratingUsers": 16,
+                "updated": 1730333378000,
+                "users": 373
+            },
+            "metadata": {
+                "author": "m417z",
+                "compilerOptions": "-lole32 -loleaut32 -lpropsys",
+                "description": "Explorer always shows file sizes in KBs in details, make it show MB/GB (or, optionally, KiB/MiB/GiB) when appropriate, and optionally show folder sizes too",
+                "github": "https://github.com/m417z",
+                "homepage": "https://m417z.com/",
+                "include": [
+                    "*"
+                ],
+                "name": "Better file sizes in Explorer details",
+                "twitter": "https://twitter.com/m417z",
+                "version": "1.1"
             }
         },
         "explorer-frame-classic": {
@@ -1058,7 +1130,7 @@
                 "published": 1696691422000,
                 "rating": 10,
                 "ratingUsers": 49,
-                "updated": 1722276351000,
+                "updated": 1729887134000,
                 "users": 2627
             },
             "metadata": {
@@ -1075,7 +1147,7 @@
                 ],
                 "name": "Classic Explorer navigation bar",
                 "twitter": "https://twitter.com/m417z",
-                "version": "1.0.4"
+                "version": "1.0.6"
             }
         },
         "explorer-name-windows": {
@@ -1240,7 +1312,7 @@
                 "published": 1722712367000,
                 "rating": 0,
                 "ratingUsers": 0,
-                "updated": 1722712367000,
+                "updated": 1729865391000,
                 "users": 36
             },
             "metadata": {
@@ -1255,7 +1327,7 @@
                 ],
                 "name": "Fix Qt scrollbar grippers",
                 "twitter": "https://twitter.com/kawaipure",
-                "version": "1.0"
+                "version": "1.1"
             }
         },
         "fix-strips": {
@@ -1395,13 +1467,13 @@
                 "published": 1713005692000,
                 "rating": 9,
                 "ratingUsers": 15,
-                "updated": 1728767437000,
+                "updated": 1729876805000,
                 "users": 579
             },
             "metadata": {
                 "author": "m417z",
                 "compilerOptions": "-lshlwapi",
-                "description": "Define alternative files for loading various resources (e.g. instead of icons in imageres.dll) for simple theming without having to modify system files",
+                "description": "Define alternative files for loading various resources (e.g. icons in imageres.dll) for simple theming without having to modify system files",
                 "github": "https://github.com/m417z",
                 "homepage": "https://m417z.com/",
                 "include": [
@@ -1409,7 +1481,7 @@
                 ],
                 "name": "Resource Redirect",
                 "twitter": "https://twitter.com/m417z",
-                "version": "1.1.6"
+                "version": "1.1.8"
             }
         },
         "icon16bitfix": {
@@ -1688,7 +1760,7 @@
                 "published": 1725792150000,
                 "rating": 10,
                 "ratingUsers": 14,
-                "updated": 1726213801000,
+                "updated": 1729806251000,
                 "users": 445
             },
             "metadata": {
@@ -1701,7 +1773,7 @@
                 ],
                 "name": "Logon, Logoff & Shutdown Sounds Restored",
                 "twitter": "https://twitter.com/TorutheRedFox",
-                "version": "1.0.1"
+                "version": "1.0.2"
             }
         },
         "maintain-flux-colour-temperature": {
@@ -2257,6 +2329,26 @@
                 "version": "1.0.2"
             }
         },
+        "small-tray-icons-on-touch": {
+            "details": {
+                "defaultSorting": 260,
+                "published": 1729521551000,
+                "rating": 10,
+                "ratingUsers": 1,
+                "updated": 1729521551000,
+                "users": 26
+            },
+            "metadata": {
+                "author": "aubymori",
+                "description": "Reduces the size of tray icons on touch screens",
+                "github": "https://github.com/aubymori",
+                "include": [
+                    "explorer.exe"
+                ],
+                "name": "Small Tray Icons on Touch",
+                "version": "1.0.0"
+            }
+        },
         "start-menu-all-apps": {
             "details": {
                 "defaultSorting": 19000,
@@ -2322,6 +2414,32 @@
                 "version": "1.0.2"
             }
         },
+        "taskbar-auto-hide-when-maximized": {
+            "details": {
+                "defaultSorting": 612,
+                "published": 1729882023000,
+                "rating": 9,
+                "ratingUsers": 2,
+                "updated": 1729882023000,
+                "users": 68
+            },
+            "metadata": {
+                "architecture": [
+                    "x86-64"
+                ],
+                "author": "m417z",
+                "compilerOptions": "-ldwmapi",
+                "description": "Automatically hides the taskbar when a window is maximized, and brings it back when there are no maximized windows",
+                "github": "https://github.com/m417z",
+                "homepage": "https://m417z.com/",
+                "include": [
+                    "explorer.exe"
+                ],
+                "name": "Taskbar auto-hide when maximized",
+                "twitter": "https://twitter.com/m417z",
+                "version": "1.0"
+            }
+        },
         "taskbar-autohide-better": {
             "details": {
                 "defaultSorting": 13770,
@@ -2350,7 +2468,7 @@
                 "published": 1727557304000,
                 "rating": 10,
                 "ratingUsers": 5,
-                "updated": 1728064921000,
+                "updated": 1730496483000,
                 "users": 267
             },
             "metadata": {
@@ -2367,7 +2485,7 @@
                 ],
                 "name": "Taskbar Background Helper",
                 "twitter": "https://twitter.com/m417z",
-                "version": "1.0.1"
+                "version": "1.0.2"
             }
         },
         "taskbar-button-click": {
@@ -2429,7 +2547,7 @@
                 "published": 1728751303000,
                 "rating": 10,
                 "ratingUsers": 2,
-                "updated": 1728751303000,
+                "updated": 1729619174000,
                 "users": 71
             },
             "metadata": {
@@ -2446,7 +2564,7 @@
                 ],
                 "name": "Taskbar classic context menu",
                 "twitter": "https://twitter.com/m417z",
-                "version": "1.0"
+                "version": "1.0.1"
             }
         },
         "taskbar-clock-customization": {
@@ -2506,7 +2624,7 @@
                 "published": 1704123810000,
                 "rating": 10,
                 "ratingUsers": 56,
-                "updated": 1729104808000,
+                "updated": 1729104975000,
                 "users": 2152
             },
             "metadata": {
@@ -2548,13 +2666,39 @@
                 "version": "1.3.7"
             }
         },
+        "taskbar-hung-rearrangement-fix": {
+            "details": {
+                "defaultSorting": 261,
+                "published": 1729935848000,
+                "rating": 0,
+                "ratingUsers": 0,
+                "updated": 1729935848000,
+                "users": 29
+            },
+            "metadata": {
+                "architecture": [
+                    "x86-64"
+                ],
+                "author": "m417z",
+                "compilerOptions": "-lversion",
+                "description": "Fixes a taskbar bug which causes taskbar items of hung windows to move to the end of the taskbar",
+                "github": "https://github.com/m417z",
+                "homepage": "https://m417z.com/",
+                "include": [
+                    "explorer.exe"
+                ],
+                "name": "Taskbar hung windows rearrangement fix",
+                "twitter": "https://twitter.com/m417z",
+                "version": "1.0"
+            }
+        },
         "taskbar-icon-size": {
             "details": {
                 "defaultSorting": 416040,
                 "published": 1657984524000,
                 "rating": 10,
                 "ratingUsers": 855,
-                "updated": 1724703161000,
+                "updated": 1729983087000,
                 "users": 41604
             },
             "featured": true,
@@ -2563,7 +2707,7 @@
                     "x86-64"
                 ],
                 "author": "m417z",
-                "compilerOptions": "-DWINVER=0x0605 -lcomctl32 -lole32 -loleaut32 -lruntimeobject -lshcore -lwininet",
+                "compilerOptions": "-DWINVER=0x0A00 -lcomctl32 -lole32 -loleaut32 -lruntimeobject -lshcore -lwininet",
                 "description": "Control the taskbar height and icon size, improve icon quality (Windows 11 only)",
                 "github": "https://github.com/m417z",
                 "homepage": "https://m417z.com/",
@@ -2572,7 +2716,7 @@
                 ],
                 "name": "Taskbar height and icon size",
                 "twitter": "https://twitter.com/m417z",
-                "version": "1.2.12"
+                "version": "1.2.16"
             }
         },
         "taskbar-labels": {
@@ -2581,7 +2725,7 @@
                 "published": 1661149953000,
                 "rating": 10,
                 "ratingUsers": 145,
-                "updated": 1727592655000,
+                "updated": 1729450452000,
                 "users": 8035
             },
             "featured": true,
@@ -2599,7 +2743,7 @@
                 ],
                 "name": "Taskbar Labels for Windows 11",
                 "twitter": "https://twitter.com/m417z",
-                "version": "1.3.1"
+                "version": "1.3.2"
             }
         },
         "taskbar-language-indicator-layout-control": {
@@ -2630,7 +2774,7 @@
                 "published": 1726228929000,
                 "rating": 10,
                 "ratingUsers": 15,
-                "updated": 1726228929000,
+                "updated": 1729588826000,
                 "users": 330
             },
             "metadata": {
@@ -2647,7 +2791,7 @@
                 ],
                 "name": "Cycle through taskbar windows on click",
                 "twitter": "https://twitter.com/m417z",
-                "version": "1.0"
+                "version": "1.1.1"
             }
         },
         "taskbar-notification-icon-spacing": {
@@ -2656,7 +2800,7 @@
                 "published": 1706376839000,
                 "rating": 10,
                 "ratingUsers": 70,
-                "updated": 1714853687000,
+                "updated": 1729696417000,
                 "users": 3064
             },
             "metadata": {
@@ -2664,16 +2808,16 @@
                     "x86-64"
                 ],
                 "author": "m417z",
-                "compilerOptions": "-lole32 -loleaut32 -lwininet",
-                "description": "Reduce or increase the spacing between notification (tray) icons on the taskbar (Windows 11 only)",
+                "compilerOptions": "-lole32 -loleaut32 -lruntimeobject",
+                "description": "Reduce or increase the spacing between tray icons on the taskbar (Windows 11 only)",
                 "github": "https://github.com/m417z",
                 "homepage": "https://m417z.com/",
                 "include": [
                     "explorer.exe"
                 ],
-                "name": "Taskbar notification icon spacing",
+                "name": "Taskbar tray icon spacing",
                 "twitter": "https://twitter.com/m417z",
-                "version": "1.0.2"
+                "version": "1.1"
             }
         },
         "taskbar-notification-icons-show-all": {
@@ -2707,7 +2851,7 @@
                 "published": 1728056002000,
                 "rating": 10,
                 "ratingUsers": 28,
-                "updated": 1728138088000,
+                "updated": 1730066930000,
                 "users": 770
             },
             "metadata": {
@@ -2715,7 +2859,7 @@
                     "x86-64"
                 ],
                 "author": "m417z",
-                "compilerOptions": "-DWINVER=0x0A00 -ldwmapi -lole32 -loleaut32 -lruntimeobject -lshcore",
+                "compilerOptions": "-DWINVER=0x0A00 -ldwmapi -lole32 -loleaut32 -lruntimeobject -lshcore -lversion",
                 "description": "Moves the Windows 11 taskbar to the top of the screen",
                 "github": "https://github.com/m417z",
                 "homepage": "https://m417z.com/",
@@ -2724,7 +2868,7 @@
                 ],
                 "name": "Taskbar on top for Windows 11",
                 "twitter": "https://twitter.com/m417z",
-                "version": "1.0.1"
+                "version": "1.0.4"
             }
         },
         "taskbar-scroll-actions": {
@@ -2756,7 +2900,7 @@
                 "published": 1724520144000,
                 "rating": 10,
                 "ratingUsers": 3,
-                "updated": 1727721442000,
+                "updated": 1730488449000,
                 "users": 324
             },
             "metadata": {
@@ -2775,7 +2919,7 @@
                 ],
                 "name": "Start button always on the left",
                 "twitter": "https://twitter.com/m417z",
-                "version": "1.1.1"
+                "version": "1.2"
             }
         },
         "taskbar-thumbnail-reorder": {
@@ -2831,13 +2975,39 @@
                 "version": "1.0"
             }
         },
+        "taskbar-tray-system-icon-tweaks": {
+            "details": {
+                "defaultSorting": 6390,
+                "published": 1729973006000,
+                "rating": 10,
+                "ratingUsers": 22,
+                "updated": 1730234692000,
+                "users": 639
+            },
+            "metadata": {
+                "architecture": [
+                    "x86-64"
+                ],
+                "author": "m417z",
+                "compilerOptions": "-lole32 -loleaut32 -lruntimeobject",
+                "description": "Allows hiding system icons (volume, network, battery), the bell (always or when there are no new notifications), and the \"Show desktop\" button (Windows 11 only)",
+                "github": "https://github.com/m417z",
+                "homepage": "https://m417z.com/",
+                "include": [
+                    "explorer.exe"
+                ],
+                "name": "Taskbar tray system icon tweaks",
+                "twitter": "https://twitter.com/m417z",
+                "version": "1.1"
+            }
+        },
         "taskbar-vertical": {
             "details": {
                 "defaultSorting": 13716,
                 "published": 1718190574000,
                 "rating": 9,
                 "ratingUsers": 37,
-                "updated": 1728084320000,
+                "updated": 1729708789000,
                 "users": 1524
             },
             "metadata": {
@@ -2858,7 +3028,7 @@
                 ],
                 "name": "Vertical Taskbar for Windows 11",
                 "twitter": "https://twitter.com/m417z",
-                "version": "1.2.5"
+                "version": "1.3"
             }
         },
         "taskbar-volume-control": {
@@ -3089,6 +3259,30 @@
                 ],
                 "name": "UXTheme hook",
                 "version": "1.1"
+            }
+        },
+        "version-spoof": {
+            "details": {
+                "defaultSorting": 210,
+                "published": 1730211947000,
+                "rating": 10,
+                "ratingUsers": 1,
+                "updated": 1730211947000,
+                "users": 21
+            },
+            "metadata": {
+                "author": "aubymori",
+                "description": "Fakes the Windows version reported to applications",
+                "exclude": [
+                    "winlogon.exe",
+                    "dwm.exe"
+                ],
+                "github": "https://github.com/aubymori",
+                "include": [
+                    "*"
+                ],
+                "name": "Version Spoof",
+                "version": "1.0.0"
             }
         },
         "virtual-desktop-taskbar-order": {
@@ -3375,7 +3569,7 @@
                 "published": 1715436273000,
                 "rating": 10,
                 "ratingUsers": 107,
-                "updated": 1727879659000,
+                "updated": 1729940627000,
                 "users": 12109
             },
             "metadata": {
@@ -3393,7 +3587,7 @@
                 ],
                 "name": "Windows 11 Notification Center Styler",
                 "twitter": "https://twitter.com/m417z",
-                "version": "1.1.3"
+                "version": "1.1.4"
             }
         },
         "windows-11-start-menu-styler": {
@@ -3402,7 +3596,7 @@
                 "published": 1703013948000,
                 "rating": 10,
                 "ratingUsers": 493,
-                "updated": 1722190006000,
+                "updated": 1729943904000,
                 "users": 41753
             },
             "featured": true,
@@ -3420,7 +3614,7 @@
                 ],
                 "name": "Windows 11 Start Menu Styler",
                 "twitter": "https://twitter.com/m417z",
-                "version": "1.1.5"
+                "version": "1.1.6"
             }
         },
         "windows-11-taskbar-styler": {
@@ -3429,7 +3623,7 @@
                 "published": 1684509250000,
                 "rating": 9,
                 "ratingUsers": 428,
-                "updated": 1722155241000,
+                "updated": 1729940337000,
                 "users": 32556
             },
             "featured": true,
@@ -3447,7 +3641,7 @@
                 ],
                 "name": "Windows 11 Taskbar Styler",
                 "twitter": "https://twitter.com/m417z",
-                "version": "1.3.7"
+                "version": "1.3.8"
             }
         },
         "windows-7-clock-spacing": {

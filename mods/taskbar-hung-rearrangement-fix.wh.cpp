@@ -1,8 +1,8 @@
 // ==WindhawkMod==
-// @id              taskbar-left-click-cycle
-// @name            Cycle through taskbar windows on click
-// @description     Makes clicking on combined taskbar items cycle through windows instead of opening thumbnail previews
-// @version         1.1.1
+// @id              taskbar-hung-rearrangement-fix
+// @name            Taskbar hung windows rearrangement fix
+// @description     Fixes a taskbar bug which causes taskbar items of hung windows to move to the end of the taskbar
+// @version         1.0
 // @author          m417z
 // @github          https://github.com/m417z
 // @twitter         https://twitter.com/m417z
@@ -22,14 +22,12 @@
 
 // ==WindhawkModReadme==
 /*
-# Cycle through taskbar windows on click
+# Taskbar hung windows rearrangement fix
 
-Makes clicking on combined taskbar items cycle through windows instead of
-opening thumbnail previews. It's still possible to open thumbnail previews by
-holding the Ctrl key while clicking.
-
-In addition, makes Win+# hotkeys (Win+1, Win+2, etc.) cycle through taskbar
-windows.
+Fixes a taskbar bug which causes taskbar items of hung windows to move to the
+end of the taskbar. For more details about the bug, check out the following blog
+post: [Hung windows and taskbar buttons
+rearrangement](https://ramensoftware.com/hung-windows-and-taskbar-buttons-rearrangement).
 
 Only Windows 10 64-bit and Windows 11 are supported. For other Windows versions
 check out [7+ Taskbar Tweaker](https://tweaker.ramensoftware.com/).
@@ -37,7 +35,7 @@ check out [7+ Taskbar Tweaker](https://tweaker.ramensoftware.com/).
 **Note:** To customize the old taskbar on Windows 11 (if using ExplorerPatcher
 or a similar tool), enable the relevant option in the mod's settings.
 
-![Demonstration](https://i.imgur.com/ecYYtGU.gif)
+![Demonstration](https://i.imgur.com/8WU4YCX.png)
 */
 // ==/WindhawkModReadme==
 
@@ -73,83 +71,114 @@ WinVersion g_winVersion;
 std::atomic<bool> g_initialized;
 std::atomic<bool> g_explorerPatcherInitialized;
 
-bool g_inHandleWinNumHotKey;
+bool IsGhostWindowClass(HWND hWnd) {
+    static ATOM ghostAtom;
 
-using CTaskBtnGroup_GetGroupType_t = int(WINAPI*)(PVOID pThis);
-CTaskBtnGroup_GetGroupType_t CTaskBtnGroup_GetGroupType_Original;
-
-using CTaskListWnd__HandleClick_t = void(WINAPI*)(PVOID pThis,
-                                                  PVOID taskBtnGroup,
-                                                  int taskItemIndex,
-                                                  int clickAction,
-                                                  int param4,
-                                                  int param5);
-CTaskListWnd__HandleClick_t CTaskListWnd__HandleClick_Original;
-void WINAPI CTaskListWnd__HandleClick_Hook(PVOID pThis,
-                                           PVOID taskBtnGroup,
-                                           int taskItemIndex,
-                                           int clickAction,
-                                           int param4,
-                                           int param5) {
-    Wh_Log(L"> %d", clickAction);
-
-    auto original = [=]() {
-        CTaskListWnd__HandleClick_Original(pThis, taskBtnGroup, taskItemIndex,
-                                           clickAction, param4, param5);
-    };
-
-    // Group types:
-    // 1 - Single item or multiple uncombined items
-    // 2 - Pinned item
-    // 3 - Multiple combined items
-    int groupType = CTaskBtnGroup_GetGroupType_Original(taskBtnGroup);
-    if (groupType != 3) {
-        return original();
+    if (!ghostAtom) {
+        WNDCLASS wndClass;
+        ghostAtom = (ATOM)GetClassInfo(NULL, L"Ghost", &wndClass);
+        if (!ghostAtom) {
+            return false;
+        }
     }
 
-    constexpr int kClick = 0;
-    constexpr int kForward = 1;
-    constexpr int kBack = 2;
-    constexpr int kCtrlClick = 4;
-
-    int newClickAction = clickAction;
-    if (g_inHandleWinNumHotKey) {
-        if (clickAction == kForward || clickAction == kBack) {
-            newClickAction = kCtrlClick;
-        } else if (clickAction == kCtrlClick) {
-            newClickAction = kForward;
-        }
-
-        Wh_Log(L"-> %d", newClickAction);
-    } else {
-        if (clickAction == kClick) {
-            newClickAction = kCtrlClick;
-        } else if (clickAction == kCtrlClick) {
-            newClickAction = kClick;
-        }
-
-        Wh_Log(L"-> %d", newClickAction);
-    }
-
-    CTaskListWnd__HandleClick_Original(pThis, taskBtnGroup, taskItemIndex,
-                                       newClickAction, param4, param5);
+    ATOM atom = (ATOM)GetClassLong(hWnd, GCW_ATOM);
+    return atom && atom == ghostAtom;
 }
 
-using CTaskListWnd_HandleWinNumHotKey_t = HRESULT(WINAPI*)(void* pThis,
-                                                           short param1,
-                                                           WORD param2);
-CTaskListWnd_HandleWinNumHotKey_t CTaskListWnd_HandleWinNumHotKey_Original;
-HRESULT WINAPI CTaskListWnd_HandleWinNumHotKey_Hook(void* pThis,
-                                                    short param1,
-                                                    WORD param2) {
+HWND MyGhostWindowFromHungWindow(HWND hwndHung) {
+    using GhostWindowFromHungWindow_t = HWND(WINAPI*)(HWND hwndHung);
+    static GhostWindowFromHungWindow_t pGhostWindowFromHungWindow = []() {
+        HMODULE hUser32 = GetModuleHandle(L"user32.dll");
+        if (hUser32) {
+            return (GhostWindowFromHungWindow_t)GetProcAddress(
+                hUser32, "GhostWindowFromHungWindow");
+        }
+
+        return (GhostWindowFromHungWindow_t) nullptr;
+    }();
+
+    if (!pGhostWindowFromHungWindow) {
+        return nullptr;
+    }
+
+    return pGhostWindowFromHungWindow(hwndHung);
+}
+
+HWND MyHungWindowFromGhostWindow(HWND hwndGhost) {
+    using HungWindowFromGhostWindow_t = HWND(WINAPI*)(HWND hwndGhost);
+    static HungWindowFromGhostWindow_t pHungWindowFromGhostWindow = []() {
+        HMODULE hUser32 = GetModuleHandle(L"user32.dll");
+        if (hUser32) {
+            return (HungWindowFromGhostWindow_t)GetProcAddress(
+                hUser32, "HungWindowFromGhostWindow");
+        }
+
+        return (HungWindowFromGhostWindow_t) nullptr;
+    }();
+
+    if (!pHungWindowFromGhostWindow) {
+        return nullptr;
+    }
+
+    return pHungWindowFromGhostWindow(hwndGhost);
+}
+
+using CTaskBand__HandleReplaceWindow_t = LRESULT(WINAPI*)(void* pThis,
+                                                          HWND hFromWnd,
+                                                          HWND hToWnd);
+CTaskBand__HandleReplaceWindow_t CTaskBand__HandleReplaceWindow_Original;
+LRESULT WINAPI CTaskBand__HandleReplaceWindow_Hook(void* pThis,
+                                                   HWND hFromWnd,
+                                                   HWND hToWnd) {
     Wh_Log(L">");
 
-    g_inHandleWinNumHotKey = true;
+    if (hToWnd && !IsWindow(hToWnd)) {
+        return 0;
+    }
 
-    HRESULT ret =
-        CTaskListWnd_HandleWinNumHotKey_Original(pThis, param1, param2);
+    LRESULT ret =
+        CTaskBand__HandleReplaceWindow_Original(pThis, hFromWnd, hToWnd);
 
-    g_inHandleWinNumHotKey = false;
+    return ret;
+}
+
+using CWindowTaskItem_GetWindow_t = HWND(WINAPI*)(void* pThis);
+CWindowTaskItem_GetWindow_t CWindowTaskItem_GetWindow_Original;
+
+using CWindowTaskItem_SetWindow_t = HRESULT(WINAPI*)(void* pThis, HWND hWnd);
+CWindowTaskItem_SetWindow_t CWindowTaskItem_SetWindow_Original;
+
+HWND WINAPI CWindowTaskItem_GetWindow_Hook(void* pThis) {
+    HWND ret = CWindowTaskItem_GetWindow_Original(pThis);
+
+    if ((LONG_PTR)ret & 1) {
+        Wh_Log(L">");
+
+        ret = (HWND)((LONG_PTR)ret & ~1);
+
+        HWND hGhostWnd = MyGhostWindowFromHungWindow(ret);
+        if (!hGhostWnd) {
+            CWindowTaskItem_SetWindow_Original(pThis, ret);
+        } else {
+            ret = hGhostWnd;
+        }
+    }
+
+    return ret;
+}
+
+HRESULT WINAPI CWindowTaskItem_SetWindow_Hook(void* pThis, HWND hWnd) {
+    HWND hOldWnd = CWindowTaskItem_GetWindow_Original(pThis);
+
+    if (hWnd != hOldWnd && IsGhostWindowClass(hWnd) &&
+        MyHungWindowFromGhostWindow(hWnd) == hOldWnd) {
+        Wh_Log(L">");
+
+        hWnd = (HWND)((LONG_PTR)hOldWnd | 1);
+    }
+
+    HRESULT ret = CWindowTaskItem_SetWindow_Original(pThis, hWnd);
 
     return ret;
 }
@@ -226,14 +255,15 @@ bool HookExplorerPatcherSymbols(HMODULE explorerPatcherModule) {
     };
 
     EXPLORER_PATCHER_HOOK hooks[] = {
-        {R"(?GetGroupType@CTaskBtnGroup@@UEAA?AW4eTBGROUPTYPE@@XZ)",
-         (void**)&CTaskBtnGroup_GetGroupType_Original},
-        {R"(?_HandleClick@CTaskListWnd@@IEAAXPEAUITaskBtnGroup@@HW4eCLICKACTION@1@HH@Z)",
-         (void**)&CTaskListWnd__HandleClick_Original,
-         (void*)CTaskListWnd__HandleClick_Hook},
-        {R"(?HandleWinNumHotKey@CTaskListWnd@@UEAAJFG@Z)",
-         (void**)&CTaskListWnd_HandleWinNumHotKey_Original,
-         (void*)CTaskListWnd_HandleWinNumHotKey_Hook},
+        {R"(?_HandleReplaceWindow@CTaskBand@@IEAA_JPEAUHWND__@@0@Z)",
+         (void**)&CTaskBand__HandleReplaceWindow_Original,
+         (void*)CTaskBand__HandleReplaceWindow_Hook},
+        {R"(?GetWindow@CWindowTaskItem@@UEAAPEAUHWND__@@XZ)",
+         (void**)&CWindowTaskItem_GetWindow_Original,
+         (void*)CWindowTaskItem_GetWindow_Hook},
+        {R"(?SetWindow@CWindowTaskItem@@UEAAJPEAUHWND__@@@Z)",
+         (void**)&CWindowTaskItem_SetWindow_Original,
+         (void*)CWindowTaskItem_SetWindow_Hook},
     };
 
     bool succeeded = true;
@@ -327,18 +357,19 @@ bool HookTaskbarSymbols() {
     // Taskbar.dll, explorer.exe
     WindhawkUtils::SYMBOL_HOOK symbolHooks[] = {
         {
-            {LR"(public: virtual enum eTBGROUPTYPE __cdecl CTaskBtnGroup::GetGroupType(void))"},
-            &CTaskBtnGroup_GetGroupType_Original,
+            {LR"(protected: __int64 __cdecl CTaskBand::_HandleReplaceWindow(struct HWND__ *,struct HWND__ *))"},
+            &CTaskBand__HandleReplaceWindow_Original,
+            CTaskBand__HandleReplaceWindow_Hook,
         },
         {
-            {LR"(protected: void __cdecl CTaskListWnd::_HandleClick(struct ITaskBtnGroup *,int,enum CTaskListWnd::eCLICKACTION,int,int))"},
-            &CTaskListWnd__HandleClick_Original,
-            CTaskListWnd__HandleClick_Hook,
+            {LR"(public: virtual struct HWND__ * __cdecl CWindowTaskItem::GetWindow(void))"},
+            &CWindowTaskItem_GetWindow_Original,
+            CWindowTaskItem_GetWindow_Hook,
         },
         {
-            {LR"(public: virtual long __cdecl CTaskListWnd::HandleWinNumHotKey(short,unsigned short))"},
-            &CTaskListWnd_HandleWinNumHotKey_Original,
-            CTaskListWnd_HandleWinNumHotKey_Hook,
+            {LR"(public: virtual long __cdecl CWindowTaskItem::SetWindow(struct HWND__ *))"},
+            &CWindowTaskItem_SetWindow_Original,
+            CWindowTaskItem_SetWindow_Hook,
         },
     };
 

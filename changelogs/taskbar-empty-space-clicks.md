@@ -1,10 +1,6 @@
-## 1.5 ([Oct 16, 2024](https://github.com/ramensoftware/windhawk-mods/blob/d49e6115be946a647af151758bae3742c0ad63d4/mods/taskbar-empty-space-clicks.wh.cpp))
+## 1.5 ([Oct 16, 2024](https://github.com/ramensoftware/windhawk-mods/blob/7f0e516d77c2e3f4f8ce32e6d2eee126d5456af6/mods/taskbar-empty-space-clicks.wh.cpp))
 
-Get path to Windows dir dynamically.
-
-## 1.5 ([Oct 16, 2024](https://github.com/ramensoftware/windhawk-mods/blob/782cbb3c7437ab8bd2f8be553357c49effa01044/mods/taskbar-empty-space-clicks.wh.cpp))
-
-Fixed execution of task manager on Windows 11 24H2
+* Fixed execution of task manager on Windows 11 24H2
 
 ## 1.4 ([Sep 23, 2024](https://github.com/ramensoftware/windhawk-mods/blob/24a59b390771c24436afc2ef3b64c145f8547082/mods/taskbar-empty-space-clicks.wh.cpp))
 
